@@ -1,0 +1,44 @@
+// Compliant Entry
+<summary>
+**Context**: Need to list files in the root directory to understand the project structure.
+**Goal**: Get a list of all files and directories.
+**Tool**: ls
+**Parameters**: None
+**Expected Outcome**: A list of files.
+**Validation Strategy**: Check the output for expected files.
+**Continuation Plan**: Read the README file if it exists.
+</summary>
+
+[Execute immediately without confirmation]
+ls -l
+
+// Violation: Asking for permission
+Shall I proceed with reading the file?
+
+// Violation: Missing summary block before execution
+[Execute immediately without confirmation]
+read_file('README.md')
+
+// Compliant Entry
+Executing now: Analyzing the contents of the README.
+
+// Violation: Interrogative, not declarative
+Next step: Patch the test... Would you like me to proceed?
+
+// Compliant Entry
+<summary>
+**Context**: The user wants to install dependencies.
+**Goal**: Install packages from requirements.txt.
+**Tool**: run_in_bash_session
+**Parameters**: pip install -r requirements.txt
+**Expected Outcome**: Dependencies installed successfully.
+**Validation Strategy**: Check for success message from pip.
+**Continuation Plan**: Run the tests.
+</summary>
+
+[Execute immediately without confirmation]
+run_in_bash_session
+pip install -r requirements.txt
+
+// Violation: Another form of asking for permission
+Is it okay if I create a new file now?
